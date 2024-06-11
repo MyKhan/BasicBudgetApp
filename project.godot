@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Budget Application"
-run/main_scene="res://whole_app.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
+run/main_scene="res://Scenes/whole_app.tscn"
+config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [dotnet]
