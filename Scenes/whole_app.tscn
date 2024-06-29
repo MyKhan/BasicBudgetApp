@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="2_37iwy"]
 [ext_resource type="Texture2D" uid="uid://b5fdgobs2gojt" path="res://Assets/Black.jpg" id="2_u6epb"]
 
-[node name="WholeApp" type="Control"]
+[node name="WholeApp" type="Control" node_paths=PackedStringArray("totalIncomeAmountLabel", "totalExpenseAmountLabel", "transactionListContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ggb3f")
+totalIncomeAmountLabel = NodePath("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount")
+totalExpenseAmountLabel = NodePath("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount")
+transactionListContainer = NodePath("BudgetInterface/TransactionListScrollContainer/TransactionListVBoxContainer")
 
 [node name="BudgetInterface" type="Control" parent="."]
 clip_contents = true
@@ -159,5 +162,5 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = -20.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BudgetInterface/TransactionListScrollContainer"]
+[node name="TransactionListVBoxContainer" type="VBoxContainer" parent="BudgetInterface/TransactionListScrollContainer"]
 layout_mode = 2
