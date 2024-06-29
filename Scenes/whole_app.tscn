@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmefgbmp6i5rb"]
+[gd_scene load_steps=6 format=3 uid="uid://bmefgbmp6i5rb"]
 
 [ext_resource type="Script" path="res://Scripts/BudgetApp.cs" id="1_ggb3f"]
 [ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="2_37iwy"]
+[ext_resource type="PackedScene" uid="uid://dtbm3mgygehlg" path="res://Scenes/transaction_list.tscn" id="2_ofiwt"]
 [ext_resource type="Texture2D" uid="uid://b5fdgobs2gojt" path="res://Assets/Black.jpg" id="2_u6epb"]
+[ext_resource type="Script" path="res://Scripts/BudgetAppTransactionList.cs" id="5_rvt2j"]
 
-[node name="WholeApp" type="Control" node_paths=PackedStringArray("totalIncomeAmountLabel", "totalExpenseAmountLabel", "transactionListContainer")]
+[node name="WholeApp" type="Control" node_paths=PackedStringArray("totalIncomeAmountLabel", "totalExpenseAmountLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,13 +16,14 @@ grow_vertical = 2
 script = ExtResource("1_ggb3f")
 totalIncomeAmountLabel = NodePath("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount")
 totalExpenseAmountLabel = NodePath("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount")
-transactionListContainer = NodePath("BudgetInterface/TransactionListScrollContainer/TransactionListVBoxContainer")
+metadata/_edit_lock_ = true
 
 [node name="BudgetInterface" type="Control" parent="."]
 clip_contents = true
 anchors_preset = 0
 offset_right = 617.0
 offset_bottom = 647.0
+metadata/_edit_lock_ = true
 
 [node name="BackgroundColor" type="Sprite2D" parent="BudgetInterface"]
 position = Vector2(356.75, 296)
@@ -87,6 +90,7 @@ offset_right = -0.245067
 offset_bottom = 0.022979
 alignment = 1
 vertical = true
+metadata/_edit_lock_ = true
 
 [node name="TotalExpenseLabel" type="Label" parent="BudgetInterface/TotalExpenseBoxContainer"]
 layout_mode = 2
@@ -104,67 +108,16 @@ text = "$50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BudgetInterface"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.4
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = 15.0
-offset_right = -25.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 110
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="TransactionListHeaderName" type="Label" parent="BudgetInterface/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 20
-text = "Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TransactionListHeadersDate" type="Label" parent="BudgetInterface/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 20
-text = "Date"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TransactionListHeadersAmount" type="Label" parent="BudgetInterface/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 20
-text = "Amount"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TransactionListHeadersType" type="Label" parent="BudgetInterface/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 20
-text = "Type"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TransactionListScrollContainer" type="ScrollContainer" parent="BudgetInterface"]
+[node name="Container" type="Container" parent="BudgetInterface"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-
-[node name="TransactionListVBoxContainer" type="VBoxContainer" parent="BudgetInterface/TransactionListScrollContainer"]
-layout_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_rvt2j")
+transactionListScene = ExtResource("2_ofiwt")
 
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 1
@@ -179,6 +132,7 @@ theme_override_colors/font_focus_color = Color(0, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_37iwy")
 theme_override_font_sizes/font_size = 12
 start_index = 0
+metadata/_edit_lock_ = true
 
 [node name="Import Popup Menu" type="PopupMenu" parent="MenuBar"]
 title = "Import From File"

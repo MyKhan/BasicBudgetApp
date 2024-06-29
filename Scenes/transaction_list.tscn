@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtbm3mgygehlg"]
+
+[ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="1_7g8qj"]
+[ext_resource type="Script" path="res://Scripts/TransactionItemsListVBoxContainer.cs" id="2_x14rj"]
+[ext_resource type="PackedScene" uid="uid://84j7jgfjammo" path="res://Scenes/transaction_list_item.tscn" id="3_bwhpw"]
+
+[node name="TransactionList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+
+[node name="TrasactionListVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(1100, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("2_x14rj")
+transactionItemPackedScene = ExtResource("3_bwhpw")
+
+[node name="TransactionListHBoxContainer" type="HBoxContainer" parent="MarginContainer/TrasactionListVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 180
+alignment = 1
+
+[node name="TransactionListHeaderName" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7g8qj")
+theme_override_font_sizes/font_size = 40
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransactionListHeadersDate" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7g8qj")
+theme_override_font_sizes/font_size = 40
+text = "Date"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransactionListHeadersAmount" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7g8qj")
+theme_override_font_sizes/font_size = 40
+text = "Amount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransactionListHeadersType" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7g8qj")
+theme_override_font_sizes/font_size = 40
+text = "Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransactionListScrollContainer" type="ScrollContainer" parent="MarginContainer/TrasactionListVBoxContainer"]
+layout_mode = 2
+
+[node name="TransactionItemsListVBoxContainer" type="VBoxContainer" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListScrollContainer"]
+layout_mode = 2

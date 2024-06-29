@@ -29,17 +29,33 @@ class Transaction
 		this._type = type;
 	}
 
-	public string Name
-	{
-		get
-		{
+	public string Name { 
+		get {
 			return _name;
 		}
 	}
 
-	public string Date { get { return _date.ToString("MMMM dd, yyyy"); } }
-	public bool Incoming { get { return _incomingOrOutgoing; } }
-	public Double Amount { get { return _amount; } }
-	public Type Type { get { return _type; } }
+	public string Date { 
+		get { 
+			return _date.ToString("MMMM dd, yyyy"); 
+		} 
+	}
+	public bool Incoming { 
+		get { 
+			return _incomingOrOutgoing; 
+		} 
+	}
+	
+	public Double Amount { 
+		get { 
+			return _amount; 
+		} 
+	}
+	
+	public Type Type { 
+		get { 
+			return _type; 
+		} 
+	}
 
 }
