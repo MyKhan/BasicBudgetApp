@@ -3,9 +3,11 @@ using System;
 
 public partial class BudgetApp : Control
 {
+	[ExportGroup("Amount Labels")]
 	[Export]
 	Label totalIncomeAmountLabel, totalExpenseAmountLabel;
 
+	[ExportGroup("Scenes")]
 	[Export]
 	VBoxContainer transactionListContainer;
 	
@@ -16,9 +18,6 @@ public partial class BudgetApp : Control
 	
 	public override void _Ready()
 	{
-	/* 	totalIncomeAmountLabel = GetNode<Label>("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount");
-		totalExpenseAmountLabel = GetNode<Label>("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount"); */
-
 		UpdateAmount(totalExpenseAmountLabel, 60);
 
 		hardCodedTransaction = new Transaction("Buy a Game", DateTime.Now, true, 20, 0);
@@ -26,7 +25,6 @@ public partial class BudgetApp : Control
 		GD.Print(hardCodedTransaction.Date);
 	}
 
-	
 	public override void _Process(double delta)
 	{
 

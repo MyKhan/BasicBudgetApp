@@ -30,28 +30,30 @@ metadata/_edit_lock_ = true
 
 [node name="BudgetLabel" type="Label" parent="BudgetInterface"]
 layout_mode = 2
+anchor_top = 0.057
 anchor_right = 1.0
 anchor_bottom = 0.196
-offset_bottom = 0.187994
+offset_top = 0.120998
+offset_right = -1.0
+offset_bottom = 0.188003
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_37iwy")
 theme_override_font_sizes/font_size = 75
 text = "Budget"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="TotalIncomeBoxContainer" type="BoxContainer" parent="BudgetInterface"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04
-anchor_top = 0.15
+anchor_top = 0.2
 anchor_right = 0.3
-anchor_bottom = 0.3
-offset_left = 0.000998694
+anchor_bottom = 0.35
+offset_left = 0.000996102
 offset_top = 0.0149838
 offset_right = 0.027991
-offset_bottom = 0.022979
+offset_bottom = 0.0229781
 alignment = 1
 vertical = true
 metadata/_edit_lock_ = true
@@ -76,16 +78,15 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.7
-anchor_top = 0.15
+anchor_top = 0.2
 anchor_right = 0.96
-anchor_bottom = 0.3
+anchor_bottom = 0.35
 offset_left = -0.272047
 offset_top = 0.0149838
 offset_right = -0.245067
 offset_bottom = 0.022979
 alignment = 1
 vertical = true
-metadata/_edit_lock_ = true
 
 [node name="TotalExpenseLabel" type="Label" parent="BudgetInterface/TotalExpenseBoxContainer"]
 layout_mode = 2
@@ -164,3 +165,30 @@ offset_bottom = -20.0
 
 [node name="TransactionListVBoxContainer" type="VBoxContainer" parent="BudgetInterface/TransactionListScrollContainer"]
 layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.536
+anchor_bottom = 0.048
+offset_right = -0.472015
+offset_bottom = -0.104
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_37iwy")
+theme_override_font_sizes/font_size = 12
+start_index = 0
+
+[node name="Import Popup Menu" type="PopupMenu" parent="MenuBar"]
+title = "Import From File"
+size = Vector2i(200, 62)
+theme_override_fonts/font = ExtResource("2_37iwy")
+theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_separator_size = 2
+hide_on_state_item_selection = true
+item_count = 2
+item_0/text = "Import from CSV"
+item_0/id = 0
+item_1/text = "Import from JSON"
+item_1/id = 1
