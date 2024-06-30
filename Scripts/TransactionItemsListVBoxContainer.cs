@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class TransactionItemsListVBoxContainer : VBoxContainer
 {
@@ -8,14 +9,13 @@ public partial class TransactionItemsListVBoxContainer : VBoxContainer
 
 	public override void _Ready()
 	{
-		var transactionItem = transactionItemPackedScene.Instantiate();
-		var transactionItem1 = transactionItemPackedScene.Instantiate();
-		var transactionItem2 = transactionItemPackedScene.Instantiate();
-		var transactionItem3 = transactionItemPackedScene.Instantiate();
-		AddChild(transactionItem);
-		AddChild(transactionItem1);
-		AddChild(transactionItem2);
-		AddChild(transactionItem3);
+		List<Node> transactionItems = new List<Node>();
+
+		// Adding hardcoded rows for testing
+		for (int i = 0; i < 10; i++){
+			transactionItems.Add(transactionItemPackedScene.Instantiate());
+			AddChild(transactionItems[i]);
+		}
 	}
 	
 	public override void _Process(double delta)

@@ -1,10 +1,8 @@
 using Godot;
 using System;
 
-public partial class transaction_list : Control
+public partial class TransactionListItem : HBoxContainer
 {
-	[Export]
-	VBoxContainer vBoxContainer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
