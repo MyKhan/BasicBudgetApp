@@ -3,19 +3,20 @@
 [ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="1_7g8qj"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -562.0
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 0.4
+offset_right = 0.199993
+offset_bottom = -0.200004
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 180
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="TransactionListHeaderName" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -23,7 +24,7 @@ vertical_alignment = 1
 [node name="TransactionListHeadersDate" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Date"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -31,7 +32,7 @@ vertical_alignment = 1
 [node name="TransactionListHeadersAmount" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,7 +40,7 @@ vertical_alignment = 1
 [node name="TransactionListHeadersType" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Type"
 horizontal_alignment = 1
 vertical_alignment = 1
