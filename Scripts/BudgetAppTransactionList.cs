@@ -4,13 +4,13 @@ using System;
 public partial class BudgetAppTransactionList : Container
 {
 	[Export]
-	PackedScene transactionListScene;
+	PackedScene packedSceneTransactionList;
 	
 	public override void _Ready()
 	{
-		var packedSceneTransactionListScene = transactionListScene.Instantiate();
-		GD.Print(packedSceneTransactionListScene.GetType());
-		AddChild(packedSceneTransactionListScene);
+		var transactionListScene = packedSceneTransactionList.Instantiate();
+		GD.Print(transactionListScene.GetType());
+		AddChild(transactionListScene);
 	}
 
 	

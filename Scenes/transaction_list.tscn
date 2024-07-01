@@ -13,26 +13,16 @@ offset_bottom = -0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
+[node name="TransactionListHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.139
 offset_left = -3.0
-grow_horizontal = 2
-
-[node name="TrasactionListVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-script = ExtResource("2_x14rj")
-transactionItemPackedScene = ExtResource("3_bwhpw")
-
-[node name="TransactionListHBoxContainer" type="HBoxContainer" parent="MarginContainer/TrasactionListVBoxContainer"]
-layout_mode = 2
+offset_bottom = 0.0334956
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TransactionListHeaderName" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+[node name="TransactionListHeaderName" type="Label" parent="TransactionListHBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1.26924e-06, 0.405175, 0.487163, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -43,7 +33,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersDate" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+[node name="TransactionListHeadersDate" type="Label" parent="TransactionListHBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -54,7 +44,7 @@ text = "Date"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersAmount" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+[node name="TransactionListHeadersAmount" type="Label" parent="TransactionListHBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -65,7 +55,7 @@ text = "Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersType" type="Label" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListHBoxContainer"]
+[node name="TransactionListHeadersType" type="Label" parent="TransactionListHBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -76,8 +66,17 @@ text = "Type"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListScrollContainer" type="ScrollContainer" parent="MarginContainer/TrasactionListVBoxContainer"]
+[node name="TransactionListScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
+anchor_top = 0.139
+anchor_right = 0.995
+anchor_bottom = 1.0
+offset_top = 0.0334956
+offset_right = 3.08496
+offset_bottom = 0.5
 
-[node name="TransactionItemsListVBoxContainer" type="VBoxContainer" parent="MarginContainer/TrasactionListVBoxContainer/TransactionListScrollContainer"]
+[node name="TransactionItemsListVBoxContainer" type="VBoxContainer" parent="TransactionListScrollContainer"]
+custom_minimum_size = Vector2(617, 323.5)
 layout_mode = 2
+script = ExtResource("2_x14rj")
+transactionItemPackedScene = ExtResource("3_bwhpw")

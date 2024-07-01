@@ -127,7 +127,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_rvt2j")
-transactionListScene = ExtResource("2_ofiwt")
+packedSceneTransactionList = ExtResource("2_ofiwt")
 
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 1
