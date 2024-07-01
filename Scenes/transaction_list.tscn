@@ -6,10 +6,8 @@
 
 [node name="TransactionList" type="Control"]
 layout_mode = 3
-anchor_right = 0.536
-anchor_bottom = 0.5
-offset_right = -0.472015
-offset_bottom = -0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -71,12 +69,13 @@ layout_mode = 2
 anchor_top = 0.139
 anchor_right = 0.995
 anchor_bottom = 1.0
-offset_top = 0.0334956
-offset_right = 3.08496
-offset_bottom = 0.5
+offset_top = -0.0720087
+offset_right = 2.75999
+offset_bottom = 1.0
 
 [node name="TransactionItemsListVBoxContainer" type="VBoxContainer" parent="TransactionListScrollContainer"]
-custom_minimum_size = Vector2(617, 323.5)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("2_x14rj")
 transactionItemPackedScene = ExtResource("3_bwhpw")
