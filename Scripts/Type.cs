@@ -1,4 +1,4 @@
-enum Type
+public enum Type
 {
     Home,
     Utilities,

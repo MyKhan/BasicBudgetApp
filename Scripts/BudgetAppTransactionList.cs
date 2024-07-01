@@ -9,7 +9,6 @@ public partial class BudgetAppTransactionList : Container
 	public override void _Ready()
 	{
 		var transactionListScene = packedSceneTransactionList.Instantiate();
-		GD.Print(transactionListScene.GetType());
 		AddChild(transactionListScene);
 	}
 

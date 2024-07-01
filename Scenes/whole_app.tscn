@@ -16,18 +16,20 @@ grow_vertical = 2
 script = ExtResource("1_ggb3f")
 totalIncomeAmountLabel = NodePath("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount")
 totalExpenseAmountLabel = NodePath("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount")
-metadata/_edit_lock_ = true
 
 [node name="BudgetInterface" type="Control" parent="."]
 clip_contents = true
-anchors_preset = 0
-offset_right = 617.0
-offset_bottom = 647.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="BackgroundColor" type="Sprite2D" parent="BudgetInterface"]
-position = Vector2(356.75, 296)
-scale = Vector2(1.16667, 1)
+position = Vector2(325.75, 350)
+scale = Vector2(1.06486, 0.654818)
 texture = ExtResource("2_u6epb")
 metadata/_edit_lock_ = true
 
@@ -143,7 +145,6 @@ theme_override_colors/font_focus_color = Color(0, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_37iwy")
 theme_override_font_sizes/font_size = 12
 start_index = 0
-metadata/_edit_lock_ = true
 
 [node name="Import Popup Menu" type="PopupMenu" parent="MenuBar"]
 title = "Import From File"

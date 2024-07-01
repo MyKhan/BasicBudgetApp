@@ -1,15 +1,16 @@
 using System;
+using BudgetApplication;
 
-class Transaction
+public class Transaction
 {
 	private string _name;
 	private DateTime _date;
-	private bool _incomingOrOutgoing;
+	private IncomingOrOutgoing _incomingOrOutgoing;
 	private Double _amount;
 	private Type _type = Type.Other;
 
 	// 4 arguments
-	public Transaction(string name, DateTime date, bool incomingOrOutgoing, Double amount)
+	public Transaction(string name, DateTime date, IncomingOrOutgoing incomingOrOutgoing, Double amount)
 	{
 		this._name = name;
 		this._date = date;
@@ -20,7 +21,7 @@ class Transaction
 
 
 	// 5 arguments
-	public Transaction(string name, DateTime date, bool incomingOrOutgoing, Double amount, Type type)
+	public Transaction(string name, DateTime date, IncomingOrOutgoing incomingOrOutgoing, Double amount, Type type)
 	{
 		this._name = name;
 		this._date = date;
@@ -40,7 +41,7 @@ class Transaction
 			return _date.ToString("MMMM dd, yyyy"); 
 		} 
 	}
-	public bool Incoming { 
+	public IncomingOrOutgoing IncomingOrOutgoing { 
 		get { 
 			return _incomingOrOutgoing; 
 		} 

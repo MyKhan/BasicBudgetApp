@@ -5,17 +5,15 @@
 
 [node name="HBoxContainer" type="HBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.4
-anchor_bottom = 0.4
-offset_right = 0.199993
-offset_bottom = -0.200004
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 script = ExtResource("1_m366d")
 
-[node name="TransactionListHeaderName" type="Label" parent="."]
+[node name="TransactionListItemName" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
 theme_override_font_sizes/font_size = 30
@@ -23,7 +21,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersDate" type="Label" parent="."]
+[node name="TransactionListItemDate" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
 theme_override_font_sizes/font_size = 30
@@ -31,7 +29,7 @@ text = "Date"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersAmount" type="Label" parent="."]
+[node name="TransactionListItemAmount" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
 theme_override_font_sizes/font_size = 30
@@ -39,7 +37,7 @@ text = "Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransactionListHeadersType" type="Label" parent="."]
+[node name="TransactionListItemType" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7g8qj")
 theme_override_font_sizes/font_size = 30
