@@ -7,3 +7,5 @@ This application takes input from the user or imports a CSV or JSON file that wi
 Written in C#/.NET and made in the Godot engine.
 
 Still in the Development Phase.
+
+![Present Status](<./Assets/Present Status.png>)
