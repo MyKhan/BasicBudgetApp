@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1xg523327ski"]
+
+[ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="1_c5hdj"]
+
+[node name="AddTransactionPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="LabelsVBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="NameHBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/LabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="AspectRatioContainer/LabelsVBoxContainer/NameHBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Name:"
+
+[node name="NameField" type="TextEdit" parent="AspectRatioContainer/LabelsVBoxContainer/NameHBoxContainer"]
+custom_minimum_size = Vector2(350, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Name"
+scroll_fit_content_height = true
+
+[node name="DateHBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/LabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="Date" type="Label" parent="AspectRatioContainer/LabelsVBoxContainer/DateHBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 50
+text = "Date:"
+
+[node name="DateField" type="TextEdit" parent="AspectRatioContainer/LabelsVBoxContainer/DateHBoxContainer"]
+custom_minimum_size = Vector2(350, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "2024/07/01"
+scroll_fit_content_height = true
+
+[node name="InOutHBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/LabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="InOut" type="Label" parent="AspectRatioContainer/LabelsVBoxContainer/InOutHBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 50
+text = "In/Out: "
+
+[node name="InOutDropdown" type="OptionButton" parent="AspectRatioContainer/LabelsVBoxContainer/InOutHBoxContainer"]
+custom_minimum_size = Vector2(350, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 40
+item_count = 2
+popup/item_0/text = "Incoming"
+popup/item_0/id = 0
+popup/item_1/text = "Outgoing"
+popup/item_1/id = 1
+
+[node name="AmountHBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/LabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="Amount" type="Label" parent="AspectRatioContainer/LabelsVBoxContainer/AmountHBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 50
+text = "Amount:"
+
+[node name="AmountField" type="TextEdit" parent="AspectRatioContainer/LabelsVBoxContainer/AmountHBoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "350"
+scroll_fit_content_height = true
+
+[node name="CurrencyDropdown" type="OptionButton" parent="AspectRatioContainer/LabelsVBoxContainer/AmountHBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "$"
+popup/item_0/id = 0
+popup/item_1/text = "E"
+popup/item_1/id = 1
+popup/item_2/text = "Yen"
+popup/item_2/id = 2
+popup/item_3/text = "Rs."
+popup/item_3/id = 3
+
+[node name="TypeHBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/LabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="Type" type="Label" parent="AspectRatioContainer/LabelsVBoxContainer/TypeHBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 50
+text = "Type:"
+
+[node name="TypeDropdown" type="OptionButton" parent="AspectRatioContainer/LabelsVBoxContainer/TypeHBoxContainer"]
+custom_minimum_size = Vector2(350, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c5hdj")
+theme_override_font_sizes/font_size = 40
+item_count = 3
+popup/item_0/text = "Home"
+popup/item_0/id = 0
+popup/item_1/text = "Utilities"
+popup/item_1/id = 1
+popup/item_2/text = "Other"
+popup/item_2/id = 2

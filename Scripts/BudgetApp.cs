@@ -7,6 +7,10 @@ public partial class BudgetApp : Control
 	[Export]
 	Label totalIncomeAmountLabel, totalExpenseAmountLabel;
 	
+	[ExportGroup("Packed Scenes")]
+	[Export]
+	PackedScene packedSceneAddTransactionPopup;
+
 	Double totalIncome = 0;
 	Double totalExpense = 0;
 	
@@ -22,6 +26,10 @@ public partial class BudgetApp : Control
 
 	public void UpdateAmount(Label incomeOrExpense, Double amount) {
 		incomeOrExpense.Text = "$" + amount.ToString();
+	}
+
+	public void onButtonPressed() {
+		GetTree().ChangeSceneToPacked(packedSceneAddTransactionPopup);
 	}
 	
 }

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmefgbmp6i5rb"]
+[gd_scene load_steps=9 format=3 uid="uid://bmefgbmp6i5rb"]
 
 [ext_resource type="Script" path="res://Scripts/BudgetApp.cs" id="1_ggb3f"]
 [ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="2_37iwy"]
 [ext_resource type="PackedScene" uid="uid://dtbm3mgygehlg" path="res://Scenes/transaction_list.tscn" id="2_ofiwt"]
 [ext_resource type="Texture2D" uid="uid://b5fdgobs2gojt" path="res://Assets/Black.jpg" id="2_u6epb"]
 [ext_resource type="Script" path="res://Scripts/BudgetAppTransactionList.cs" id="5_rvt2j"]
+[ext_resource type="Texture2D" uid="uid://dgaj7kf6oa5v8" path="res://Assets/icon.svg" id="6_52gdi"]
+[ext_resource type="Script" path="res://Scripts/AddTransaction.cs" id="7_37ayk"]
+[ext_resource type="PackedScene" uid="uid://d1xg523327ski" path="res://Scenes/add_transaction_popup.tscn" id="8_en3u7"]
 
 [node name="WholeApp" type="Control" node_paths=PackedStringArray("totalIncomeAmountLabel", "totalExpenseAmountLabel")]
 layout_mode = 3
@@ -16,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_ggb3f")
 totalIncomeAmountLabel = NodePath("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount")
 totalExpenseAmountLabel = NodePath("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount")
+packedSceneAddTransactionPopup = ExtResource("8_en3u7")
 
 [node name="BudgetInterface" type="Control" parent="."]
 clip_contents = true
@@ -132,6 +136,24 @@ grow_vertical = 2
 script = ExtResource("5_rvt2j")
 packedSceneTransactionList = ExtResource("2_ofiwt")
 
+[node name="Button" type="Button" parent="BudgetInterface"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 0.85
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = 0.499985
+offset_top = -1.66893e-05
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_37iwy")
+theme_override_font_sizes/font_size = 60
+text = "+"
+icon = ExtResource("6_52gdi")
+icon_alignment = 1
+script = ExtResource("7_37ayk")
+
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -158,3 +180,5 @@ item_0/text = "Import from CSV"
 item_0/id = 0
 item_1/text = "Import from JSON"
 item_1/id = 1
+
+[connection signal="pressed" from="BudgetInterface/Button" to="." method="onButtonPressed"]
