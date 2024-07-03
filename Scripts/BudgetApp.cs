@@ -19,7 +19,7 @@ public partial class BudgetApp : Control
 	public override void _Ready()
 	{
 		UpdateAmount(totalExpenseAmountLabel, 60);
-		// popupPanel.AddTransactionSubmitButtonSignal += onPopupHide;
+		GetNode<SignalManager>("/root/SignalManager").AddTransactionSubmitButtonSignal += onPopupHide;
 	}
 
 	public override void _Process(double delta)

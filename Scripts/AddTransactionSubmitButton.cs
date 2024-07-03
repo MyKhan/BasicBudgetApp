@@ -14,7 +14,6 @@ public partial class AddTransactionSubmitButton : Button
 
 	public void OnButtonPressed()
 	{
-		GD.Print("Button Pressed");
-		// EmitSignal(SignalName.SignalManager.AddTransactionSubmitButtonSignal);
+		GetNode<SignalManager>("/root/SignalManager").EmitSignal(SignalManager.SignalName.AddTransactionSubmitButtonSignal);
 	}
 }
