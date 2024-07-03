@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmefgbmp6i5rb"]
+[gd_scene load_steps=8 format=3 uid="uid://bmefgbmp6i5rb"]
 
 [ext_resource type="Script" path="res://Scripts/BudgetApp.cs" id="1_ggb3f"]
 [ext_resource type="FontFile" uid="uid://bnsoa3f6j2hmv" path="res://Fonts/Gugi-Regular.ttf" id="2_37iwy"]
 [ext_resource type="PackedScene" uid="uid://dtbm3mgygehlg" path="res://Scenes/transaction_list.tscn" id="2_ofiwt"]
-[ext_resource type="Texture2D" uid="uid://b5fdgobs2gojt" path="res://Assets/Black.jpg" id="2_u6epb"]
 [ext_resource type="Script" path="res://Scripts/BudgetAppTransactionList.cs" id="5_rvt2j"]
 [ext_resource type="Texture2D" uid="uid://dgaj7kf6oa5v8" path="res://Assets/icon.svg" id="6_52gdi"]
 [ext_resource type="Script" path="res://Scripts/AddTransaction.cs" id="7_37ayk"]
@@ -16,10 +15,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_ggb3f")
 totalIncomeAmountLabel = NodePath("BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount")
 totalExpenseAmountLabel = NodePath("BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount")
 packedSceneAddTransactionPopup = ExtResource("8_en3u7")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="BudgetInterface" type="Control" parent="."]
 clip_contents = true
@@ -29,12 +38,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="BackgroundColor" type="Sprite2D" parent="BudgetInterface"]
-position = Vector2(325.75, 350)
-scale = Vector2(1.06486, 0.654818)
-texture = ExtResource("2_u6epb")
 metadata/_edit_lock_ = true
 
 [node name="BudgetLabel" type="Label" parent="BudgetInterface"]
@@ -181,4 +184,5 @@ item_0/id = 0
 item_1/text = "Import from JSON"
 item_1/id = 1
 
+[connection signal="resized" from="." to="." method="OnWindowResized"]
 [connection signal="pressed" from="BudgetInterface/Button" to="." method="onButtonPressed"]
