@@ -187,4 +187,4 @@ item_1/text = "Import from JSON"
 item_1/id = 1
 
 [connection signal="resized" from="." to="." method="OnWindowResized"]
-[connection signal="pressed" from="BudgetInterface/Button" to="." method="onButtonPressed"]
+[connection signal="pressed" from="BudgetInterface/Button" to="." method="onTransactionButtonPressed"]

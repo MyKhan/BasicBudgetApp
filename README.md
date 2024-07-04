@@ -8,8 +8,5 @@ Written in C#/.NET and made in the Godot engine.
 
 Still in the Development Phase.
 
-### Present Status - Main Window
-![Present Status](<./Assets/Present Status.png>)
-
-### Present Status - Add Transaction Window
-![Present Status - Add Transaction Window](<./Assets/Present Status - Add Transaction Window.png>)
+### Present Status
+![Present Status](<./Assets/BudgetAppProgress.gif>)

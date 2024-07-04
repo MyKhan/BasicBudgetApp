@@ -9,30 +9,44 @@ public partial class TransactionItemsListVBoxContainer : VBoxContainer
 	[Export]
 	PackedScene packedSceneTransactionItem;
 
-	public List<Transaction> hardCodedTransactions = new List<Transaction>();
+	public List<Transaction> listOfTransactions = new List<Transaction>();
 
 	public override void _Ready()
 	{
-		hardCodedTransactions.Add(new Transaction("Income", DateTime.Now, IncomingOrOutgoing.Incoming, 3000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a Game", DateTime.Now, IncomingOrOutgoing.Outgoing, 20, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a Car", DateTime.Now, IncomingOrOutgoing.Outgoing, 2000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a House", DateTime.Now, IncomingOrOutgoing.Outgoing, 20000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Restaurant", DateTime.Now, IncomingOrOutgoing.Outgoing, 100, Type.Other));
-		hardCodedTransactions.Add(new Transaction("Income", DateTime.Now, IncomingOrOutgoing.Incoming, 3000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a Game", DateTime.Now, IncomingOrOutgoing.Outgoing, 20, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a Car", DateTime.Now, IncomingOrOutgoing.Outgoing, 2000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Buy a House", DateTime.Now, IncomingOrOutgoing.Outgoing, 20000, Type.Home));
-		hardCodedTransactions.Add(new Transaction("Restaurant", DateTime.Now, IncomingOrOutgoing.Outgoing, 100, Type.Other));
+		GetNode<SignalManager>("/root/SignalManager").AddTransactionSubmitButtonSignalWithArguments += onAddTransaction;
+
+		listOfTransactions.Add(new Transaction("Income", DateTime.Now, IncomingOrOutgoing.Incoming, 3000, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a Game", DateTime.Now, IncomingOrOutgoing.Outgoing, 20, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a Car", DateTime.Now, IncomingOrOutgoing.Outgoing, 2000, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a House", DateTime.Now, IncomingOrOutgoing.Outgoing, 20000, Type.Home));
+		listOfTransactions.Add(new Transaction("Restaurant", DateTime.Now, IncomingOrOutgoing.Outgoing, 100, Type.Other));
+		listOfTransactions.Add(new Transaction("Income", DateTime.Now, IncomingOrOutgoing.Incoming, 3000, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a Game", DateTime.Now, IncomingOrOutgoing.Outgoing, 20, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a Car", DateTime.Now, IncomingOrOutgoing.Outgoing, 2000, Type.Home));
+		listOfTransactions.Add(new Transaction("Buy a House", DateTime.Now, IncomingOrOutgoing.Outgoing, 20000, Type.Home));
+		listOfTransactions.Add(new Transaction("Restaurant", DateTime.Now, IncomingOrOutgoing.Outgoing, 100, Type.Other));
 
 		List<Node> transactionNodeItems = new List<Node>();
 
 		for (int i = 0; i < 10; i++){
 			transactionNodeItems.Add(packedSceneTransactionItem.Instantiate());
-			UpdateList(transactionNodeItems[i], hardCodedTransactions[i]);
+			UpdateList(transactionNodeItems[i], listOfTransactions[i]);
 		}
 	}
-	
-	public void UpdateList(Node nodeItem, Transaction transaction) {
+
+    private void onAddTransaction(string name, string stringDate, int intIncomingOrOutgoing, double amount, int intType)
+    {
+		// Transaction transaction = new Transaction("New Transaction", DateTime.Now, IncomingOrOutgoing.Incoming, 10020, Type.Home);
+		DateTime date = DateTime.Parse(stringDate);
+		IncomingOrOutgoing incomingOrOutgoing = (IncomingOrOutgoing)intIncomingOrOutgoing;
+		Type type = (Type)intType;
+		Transaction transaction= new Transaction(name, date, incomingOrOutgoing, amount, type);
+
+        Node nodeItem = packedSceneTransactionItem.Instantiate();
+		UpdateList(nodeItem, transaction);
+    }
+
+    public void UpdateList(Node nodeItem, Transaction transaction) {
 		nodeItem.GetNode<Label>("TransactionListItemName").Text = transaction.Name;
 		nodeItem.GetNode<Label>("TransactionListItemDate").Text = transaction.Date;
 		nodeItem.GetNode<Label>("TransactionListItemAmount").Text = transaction.Amount.ToString();
