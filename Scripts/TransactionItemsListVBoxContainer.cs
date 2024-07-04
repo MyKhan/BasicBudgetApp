@@ -7,7 +7,7 @@ public partial class TransactionItemsListVBoxContainer : VBoxContainer
 {
 	[ExportGroup("Packed Scenes")]
 	[Export]
-	PackedScene transactionItemPackedScene;
+	PackedScene packedSceneTransactionItem;
 
 	public List<Transaction> hardCodedTransactions = new List<Transaction>();
 
@@ -24,20 +24,30 @@ public partial class TransactionItemsListVBoxContainer : VBoxContainer
 		hardCodedTransactions.Add(new Transaction("Buy a House", DateTime.Now, IncomingOrOutgoing.Outgoing, 20000, Type.Home));
 		hardCodedTransactions.Add(new Transaction("Restaurant", DateTime.Now, IncomingOrOutgoing.Outgoing, 100, Type.Other));
 
-		List<Node> transactionItems = new List<Node>();
+		List<Node> transactionNodeItems = new List<Node>();
 
 		for (int i = 0; i < 10; i++){
-			transactionItems.Add(transactionItemPackedScene.Instantiate());
-			transactionItems[i].GetNode<Label>("TransactionListItemName").Text = hardCodedTransactions[i].Name;
-			transactionItems[i].GetNode<Label>("TransactionListItemDate").Text = hardCodedTransactions[i].Date;
-			transactionItems[i].GetNode<Label>("TransactionListItemAmount").Text = hardCodedTransactions[i].Amount.ToString();
-			transactionItems[i].GetNode<Label>("TransactionListItemType").Text = hardCodedTransactions[i].Type.ToString();
-			GD.Print(hardCodedTransactions[i].IncomingOrOutgoing.ToString());
-			AddChild(transactionItems[i]);
+			transactionNodeItems.Add(packedSceneTransactionItem.Instantiate());
+			UpdateList(transactionNodeItems[i], hardCodedTransactions[i]);
 		}
 	}
 	
-	public override void _Process(double delta)
-	{
+	public void UpdateList(Node nodeItem, Transaction transaction) {
+		nodeItem.GetNode<Label>("TransactionListItemName").Text = transaction.Name;
+		nodeItem.GetNode<Label>("TransactionListItemDate").Text = transaction.Date;
+		nodeItem.GetNode<Label>("TransactionListItemAmount").Text = transaction.Amount.ToString();
+		nodeItem.GetNode<Label>("TransactionListItemType").Text = transaction.Type.ToString();
+		AddChild(nodeItem);
+		UpdateAmount(transaction.IncomingOrOutgoing, transaction.Amount);
+	}
+
+	public void UpdateAmount(IncomingOrOutgoing incomeOrExpense, Double amount) {
+		if(incomeOrExpense.Equals(IncomingOrOutgoing.Incoming)) {
+			AutoloadedVariables.totalIncome += amount;
+			GetTree().Root.GetNode<Label>("WholeApp/BudgetInterface/TotalIncomeBoxContainer/TotalIncomeAmount").Text = "$" + AutoloadedVariables.totalIncome;
+		} else if(incomeOrExpense.Equals(IncomingOrOutgoing.Outgoing)) {
+			AutoloadedVariables.totalExpense += amount;
+			GetTree().Root.GetNode<Label>("WholeApp/BudgetInterface/TotalExpenseBoxContainer/TotalExpenseAmount").Text = "$" + AutoloadedVariables.totalExpense;
+		}
 	}
 }

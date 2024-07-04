@@ -41,13 +41,12 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="BudgetLabel" type="Label" parent="BudgetInterface"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.057
 anchor_right = 1.0
 anchor_bottom = 0.196
 offset_top = 0.120998
-offset_right = -1.0
-offset_bottom = 0.188003
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -64,7 +63,7 @@ anchors_preset = -1
 anchor_left = 0.04
 anchor_top = 0.2
 anchor_right = 0.3
-anchor_bottom = 0.35
+anchor_bottom = 0.325
 offset_left = 0.000996102
 offset_top = 0.0149838
 offset_right = 0.027991
@@ -75,19 +74,21 @@ metadata/_edit_lock_ = true
 
 [node name="TotalIncomeLabel" type="Label" parent="BudgetInterface/TotalIncomeBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Total Income"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TotalIncomeAmount" type="Label" parent="BudgetInterface/TotalIncomeBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "$100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,7 +99,7 @@ anchors_preset = -1
 anchor_left = 0.7
 anchor_top = 0.2
 anchor_right = 0.96
-anchor_bottom = 0.35
+anchor_bottom = 0.325
 offset_left = -0.272047
 offset_top = 0.0149838
 offset_right = -0.245067
@@ -109,19 +110,21 @@ metadata/_edit_lock_ = true
 
 [node name="TotalExpenseLabel" type="Label" parent="BudgetInterface/TotalExpenseBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.403922, 0.486275, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Total Expense"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TotalExpenseAmount" type="Label" parent="BudgetInterface/TotalExpenseBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_37iwy")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "$50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -130,10 +133,9 @@ vertical_alignment = 1
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 324.0
-offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_rvt2j")
