@@ -10,3 +10,9 @@ Still in the Development Phase.
 
 ### Present Status
 ![Present Status](<./Assets/BudgetAppProgress.gif>)
+
+# To Implement
+- Importing CSV File
+- Importing JSON File
+- Viewing and Editing Transaction
+- Fix Layout
